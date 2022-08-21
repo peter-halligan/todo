@@ -1,4 +1,4 @@
-name: Inital build
+name: Inital Build
 on: [push]
 jobs:
   build:

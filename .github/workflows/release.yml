@@ -1,12 +1,15 @@
 name: Publish package to GitHub Packages
 on:
-  push:
+  workflow:
+    workflows: 
+      - "Inital Build"
     branches:
       - main
+    types:
+      - completed
 jobs:
   publish:
     runs-on: ubuntu-latest 
-    needs: build
     permissions: 
       contents: read
       packages: write 
