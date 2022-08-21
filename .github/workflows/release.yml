@@ -1,6 +1,6 @@
 name: Publish package to GitHub Packages
 on:
-  workflow:
+  workflow_run:
     workflows: 
       - "Inital Build"
     branches:
