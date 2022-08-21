@@ -15,7 +15,7 @@ jobs:
         run: mvn --batch-mode --update-snapshots package
 
       - name: SonarCloud Scan
-        uses: mvn sonar:sonar 
+        run: mvn sonar:sonar 
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
