@@ -40,4 +40,8 @@ public class Todo {
     public Boolean getStatus() {
       return status;
     }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }
