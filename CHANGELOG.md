@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/peter-halligan/todo/compare/v1.0.0...v1.1.0) (2022-08-22)
+
+
+### Features
+
+* new job ([ea7ce24](https://github.com/peter-halligan/todo/commit/ea7ce24808c4765c996210e8def3e65488d30bf3))
+* push release ([867dad6](https://github.com/peter-halligan/todo/commit/867dad601c94b7de68e9b45f9eec6de197e75a8e))
+
 ## 1.0.0 (2022-08-22)
 
 
