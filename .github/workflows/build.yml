@@ -12,7 +12,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B tests
+        run: mvn -B test
 
       - name: SonarCloud Scan
         run: mvn sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=${{ github.workspace }}/target/site/jacoco/jacoco.xml
