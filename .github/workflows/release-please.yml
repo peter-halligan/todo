@@ -8,6 +8,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: google-github-actions/release-please-action@v3
+        id: release
         with:
           release-type: maven
           package-name: todo
+    
+      - uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.release_created }}
+
+      - name: Set up JDK 11
+        if: ${{ steps.release.outputs.release_created }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: build and package and deploy
+        if: ${{ steps.release.outputs.release_created }}
+        run: mvn --batch-mode deploy -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MAVEN_OPTS: "-XX:+TieredCompilation -XX:TieredStopAtLevel=1 -Xmx1024m"
