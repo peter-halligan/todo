@@ -12,13 +12,16 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn -B tests
 
       - name: SonarCloud Scan
         run: mvn sonar:sonar -Dsonar.coverage.jacoco.xmlReportPaths=${{ github.workspace }}/target/site/jacoco/jacoco.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Build with Maven
+        run: mvn -B package -DskipTests
 
       - run: mkdir staging && cp target/*.jar staging
       - uses: actions/upload-artifact@v3
