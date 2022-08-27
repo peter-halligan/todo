@@ -46,6 +46,24 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.28</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -89,15 +107,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
-		<!-- <plugin>
-        	<artifactId>maven-release-plugin</artifactId>
-        	<version>${maven-release-plugin.version}</version>
-			<configuration>
-				<scmCommentPrefix>[ci skip]</scmCommentPrefix>
-				<tagNameFormat>@{project.version}</tagNameFormat>
-			</configuration>
-		</plugin> -->
 
 		</plugins>
 	</build>
