@@ -35,25 +35,6 @@ class TodoApplicationTests {
         assertEquals(todoEntity.getMessage(), foundEntity.get().getMessage());
     }
 
-	/**
-	 * 
-	 */
-	@Test
-    public void givenGenericEntityRepository_whenEntityNotFoundthenFail() {
-        todoRepository
-          .save(new Todo("test b", true));
-		
-		Iterable<Todo> todos = todoRepository.findAll();
-        assertNotNull(todos);
-		List<Todo> actualList = new ArrayList<Todo>();
-		if (todos != null) {
-			actualList = StreamSupport
-  				.stream(todos.spliterator(), false)
-  				.collect(Collectors.toList());
-		};
-		int length = actualList.size();
-        assertEquals(1, length);
-    }
 
 		/**
 	 * 

@@ -39,7 +39,7 @@ public class TodoServiceImplIntegrationTest {
     @BeforeAll
     public void setUp() {
         Todo todo = new Todo("test message", false );
-        todo.setId(1);
+        todo.setId(1L);
         Mockito.when(todoRepository.findById(todo.getId())).thenReturn(Optional.ofNullable(todo));
     }
 

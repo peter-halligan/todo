@@ -63,10 +63,10 @@ public class TodoService {
     }
 
     //DELETE
-    public String deleteTodo(Long id){
+    public void deleteTodo(Long id){
         log.info("Deleting todo by ID: {}", id);
         repository.deleteById(id);
-        return "deleted id: " + id;
+        
     }
 
 }

@@ -5,11 +5,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 @NoArgsConstructor
 @Entity
+@Getter
+@Setter
 public class Todo {
     
     @Id
@@ -32,26 +36,4 @@ public class Todo {
           id, message, completed);
     }
   
-    public Long getId() {
-      return id;
-    }
-  
-    public String getMessage() {
-      return message;
-    }
-  
-    public Boolean getCompleted() {
-      return completed;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public void setCompleted(Boolean completed) {
-      this.completed = completed;
-    }
-
-    public void setId(int id) {
-    }
 }
