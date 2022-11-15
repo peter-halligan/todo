@@ -36,12 +36,6 @@ public class TodoControllerTest {
 
     }
 
-    @Test
-    void givenTodoId_postTodoDeleteEndpoint_ShouldDeleteTodo() throws RestClientException{
-        String baseUrl = "http://localhost:" + port + "/todos/{}";
-        restTemplate.delete(baseUrl, 1);
-        
-    }
 
     @Test
     void givenTodos_GetTodosEndpoint_ShouldReturnTodoList() {
