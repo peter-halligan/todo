@@ -12,7 +12,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestClientException;
+
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -48,9 +48,10 @@ public class TodoControllerTest {
     @Test
     void giveAnId_GetTodoEndpoint_ShouldReturnATodo() {
         String baseUrl = "http://localhost:" + port + "/todos/{id}";
-        ResponseEntity<Todo> response = restTemplate.getForEntity(baseUrl, Todo.class, 1);
+        ResponseEntity<Todo> response = restTemplate.getForEntity(baseUrl, Todo.class, 4);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertEquals(1,response.getBody().getId());
+        System.out.println(response.getBody());
+        assertEquals(4,response.getBody().getId());
 
     }
 
