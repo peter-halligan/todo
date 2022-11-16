@@ -25,6 +25,11 @@ public class TodoControllerTest {
     @Autowired TestRestTemplate restTemplate;
 
     @Test
+	void contextLoads() {
+	}
+
+
+    @Test
     void givenANewTodo_postTodoEndpoint_ShouldAddANewTodo() {
         String baseUrl = "http://localhost:" + port + "/todos";
         Todo todo = new Todo("TestTask", false);

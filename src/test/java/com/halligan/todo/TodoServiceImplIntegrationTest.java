@@ -32,6 +32,7 @@ public class TodoServiceImplIntegrationTest {
 
     @Autowired
     private TodoService todoService;
+    
 
     @MockBean
     private TodoRepository todoRepository;

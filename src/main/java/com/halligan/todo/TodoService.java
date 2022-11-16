@@ -17,15 +17,20 @@ public class TodoService {
     
     private TodoRepository repository;
 
+    TodoConverter todoConverter;
+
+
     @Autowired
-    TodoService(TodoRepository repository) {
+    TodoService(TodoRepository repository, TodoConverter todoConverter) {
         this.repository = repository;
+        this.todoConverter = todoConverter;
     }
 
     //Create
-    public Todo createTodo (Todo todo) {
-        log.info("saving todo: {}", todo);
-        return repository.save(todo);
+    public TodoDTO createTodo (TodoDTO todoDTO) {
+        log.info("saving todo: {}", todoDTO);
+        Todo todo = todoConverter.convertDtoToEntity(todoDTO);
+        return todoConverter.convertEntityToDto(repository.save(todo)) ;
     }
 
     // READ
@@ -50,14 +55,15 @@ public class TodoService {
     }
 
     //UPDATE
-    public Todo updateTodo(Long id, Todo todo) {
+    public TodoDTO updateTodo(Long id, TodoDTO todoDTO) {
+        Todo todo = todoConverter.convertDtoToEntity(todoDTO);
         log.info("Updating todo by ID: {}, {}", id, todo.toString());
         return repository.findById(id).map(existing -> {
             existing.setCompleted(todo.getCompleted());
             existing.setMessage(todo.getMessage());
-            return repository.save(existing);
+            return todoConverter.convertEntityToDto(repository.save(existing));
         }).orElseGet(() -> {
-            return repository.save(todo);
+            return todoConverter.convertEntityToDto(repository.save(todo));
     });
         
     }

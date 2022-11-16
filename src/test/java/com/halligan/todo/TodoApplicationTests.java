@@ -11,18 +11,15 @@ import java.util.stream.StreamSupport;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-@SpringBootTest
+
+@DataJpaTest
 class TodoApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
 
 	@Autowired
     private TodoRepository todoRepository;
-	
+
 
     @Test
     public void givenEntityRepository_whenSaveAndRetreiveEntity_thenOK() {

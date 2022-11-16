@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +24,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class TodoController {
 
     TodoService service;
-
+    
+    @Autowired
     TodoController(TodoService service) {
         this.service = service;
     }
@@ -35,9 +37,9 @@ public class TodoController {
     }
 
     @PostMapping("/todos")
-    public Todo addTodo(@RequestBody Todo todo) {
-        log.info("Creating todo: {}", todo);
-        return service.createTodo(todo);
+    public TodoDTO addTodo(@RequestBody TodoDTO todoDTO) {
+        log.info("Creating todo: {}", todoDTO);
+        return service.createTodo(todoDTO);
     }
 
     @GetMapping("/todos/{id}")
@@ -54,8 +56,8 @@ public class TodoController {
     }
 
     @PutMapping("/todos/{id}")
-    public Todo updateTodo(@PathVariable Long id, @RequestBody Todo todo) throws Exception{
-        return service.updateTodo(id, todo);
+    public TodoDTO updateTodo(@PathVariable Long id, @RequestBody TodoDTO todoDTO) throws Exception{
+        return service.updateTodo(id, todoDTO);
        
 
     }
