@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/peter-halligan/todo/compare/v1.0.0...v1.1.0) (2022-11-20)
+
+
+### Features
+
+* Add service ([#15](https://github.com/peter-halligan/todo/issues/15)) ([e9d7dc8](https://github.com/peter-halligan/todo/commit/e9d7dc894054b20678336376b8a38f3fa53ee220))
+
 ## 1.0.0 (2022-08-22)
 
 
