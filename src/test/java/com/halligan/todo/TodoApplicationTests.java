@@ -11,18 +11,15 @@ import java.util.stream.StreamSupport;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
-@SpringBootTest
+
+@DataJpaTest
 class TodoApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
 
 	@Autowired
     private TodoRepository todoRepository;
-	
+
 
     @Test
     public void givenEntityRepository_whenSaveAndRetreiveEntity_thenOK() {
@@ -35,25 +32,6 @@ class TodoApplicationTests {
         assertEquals(todoEntity.getMessage(), foundEntity.get().getMessage());
     }
 
-	/**
-	 * 
-	 */
-	@Test
-    public void givenGenericEntityRepository_whenEntityNotFoundthenFail() {
-        todoRepository
-          .save(new Todo("test b", true));
-		
-		Iterable<Todo> todos = todoRepository.findAll();
-        assertNotNull(todos);
-		List<Todo> actualList = new ArrayList<Todo>();
-		if (todos != null) {
-			actualList = StreamSupport
-  				.stream(todos.spliterator(), false)
-  				.collect(Collectors.toList());
-		};
-		int length = actualList.size();
-        assertEquals(1, length);
-    }
 
 		/**
 	 * 
